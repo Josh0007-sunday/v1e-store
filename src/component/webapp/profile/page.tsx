@@ -26,7 +26,7 @@ const ProfileDashboard: React.FC = () => {
   const wallet = useAnchorWallet();
   const walletContext = useWallet(); // Gets WalletContextState
   
-  const [program, setProgram] = useState<any>(null);
+  const [ setProgram] = useState<any>(null);
 
   useEffect(() => {
     const initializeProgram = async () => {
