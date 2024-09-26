@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { web3, Program, BN } from "@project-serum/anchor";
+import { Program, BN } from "@project-serum/anchor";
 import { PublicKey } from "@solana/web3.js";
 import { Link } from 'react-router-dom';
 // import saga from "../../images/saga.jpg";

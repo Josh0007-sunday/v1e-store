@@ -21,7 +21,7 @@ type Ad = {
 const ProfileDashboard: React.FC = () => {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [ads, setAds] = useState<Ad[]>([]);
-  const [balance, setBalance] = useState({ analytics: 200, wallet: 100 }); // Mock data
+  // const [balance, setBalance] = useState({ analytics: 200, wallet: 100 }); 
 
   const wallet = useAnchorWallet();
   const walletContext = useWallet(); // Gets WalletContextState
@@ -111,8 +111,8 @@ const ProfileDashboard: React.FC = () => {
         <div className="bg-white shadow-md rounded-lg p-6">
           <h2 className="text-xl font-semibold mb-4">Balance</h2>
           <div className="space-y-2">
-            <p>Analytics Income: ${balance.analytics}</p>
-            <p>Wallet Balance: ${balance.wallet}</p>
+            <p>Analytics Income: $200</p>
+            <p>Wallet Balance: $100</p>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import './App.css';
 import WalletConnectionProvider from './component/walletconnectionprovider/page';
 import HomePage from './component/webapp/main/page';
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
   return (
