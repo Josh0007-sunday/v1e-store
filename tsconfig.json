@@ -1,0 +1,11 @@
+{
+  "files": [],
+   "compilerOptions": {
+    "jsx": "react-jsx", // This tells TypeScript to use the new JSX runtime
+    "jsxImportSource": "react" // This ensures React is the source for JSX transpiling
+  },
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
