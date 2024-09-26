@@ -7,7 +7,7 @@ import { getProgram } from "../../web3/connection"; // Ensure this function work
 import ProfileForm from "../createprofile/page";
 import AdList from "../adlist/page";
 import AdForm from "../createad/page";
-import { FaSearch, FaShoppingCart, FaUser } from "react-icons/fa";
+import { FaSearch, FaShoppingCart, FaUser, FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const HomePage = () => {
@@ -43,6 +43,12 @@ const HomePage = () => {
     setShowModal(false);
   };
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div>
       {/* Navbar */}
@@ -51,35 +57,82 @@ const HomePage = () => {
           <div className="flex items-center space-x-4">
             <h1 className="text-2xl font-bold text-gray-800">SolanaMarket</h1>
             <nav className="hidden md:flex space-x-4">
-              <a href="#" className="text-gray-600 hover:text-gray-800">Home</a>
-              <a href="#" className="text-gray-600 hover:text-gray-800">About</a>
-              <a href="#" className="text-gray-600 hover:text-gray-800">Contact</a>
+              <Link to="#" className="text-gray-600 hover:text-gray-800">
+                Home
+              </Link>
+              <Link to="#" className="text-gray-600 hover:text-gray-800">
+                About
+              </Link>
+              <Link to="#" className="text-gray-600 hover:text-gray-800">
+                Contact
+              </Link>
             </nav>
           </div>
           <div className="flex items-center space-x-4">
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search..."
-                className="pl-10 pr-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-300"
-              />
-              <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+            <div className="hidden md:flex items-center space-x-4">
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  className="pl-10 pr-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-300"
+                />
+                <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+              </div>
+              <FaShoppingCart className="text-gray-600 text-xl cursor-pointer" />
+              <Link to="/component/webapp/profile">
+                <FaUser className="text-gray-600 text-xl cursor-pointer" />
+              </Link>
+              <button
+                onClick={handleCreateAdClick}
+                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              >
+                Create Ad
+              </button>
             </div>
-            <FaShoppingCart className="text-gray-600 text-xl cursor-pointer" />
-            <Link to="/component/webapp/profile">
-              <FaUser className="text-gray-600 text-xl cursor-pointer" />
-            </Link>
-            <button
-              onClick={handleCreateAdClick}
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-            >
-              Create Ad
+            <WalletMultiButton className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" />
+            <button onClick={toggleMenu} className="md:hidden text-gray-600">
+              <FaBars className="text-xl" />
             </button>
-            <WalletMultiButton />
           </div>
         </div>
+        {isMenuOpen && (
+          <div className="md:hidden mt-4">
+            <nav className="flex flex-col space-y-2">
+              <Link to="#" className="text-gray-600 hover:text-gray-800">
+                Home
+              </Link>
+              <Link to="#" className="text-gray-600 hover:text-gray-800">
+                About
+              </Link>
+              <Link to="#" className="text-gray-600 hover:text-gray-800">
+                Contact
+              </Link>
+            </nav>
+            <div className="mt-4 space-y-2">
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  className="w-full pl-10 pr-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-300"
+                />
+                <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+              </div>
+              <div className="flex space-x-4">
+                <FaShoppingCart className="text-gray-600 text-xl cursor-pointer" />
+                <Link to="/component/webapp/profile">
+                  <FaUser className="text-gray-600 text-xl cursor-pointer" />
+                </Link>
+              </div>
+              <button
+                onClick={handleCreateAdClick}
+                className="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              >
+                Create Ad
+              </button>
+            </div>
+          </div>
+        )}
       </header>
-
       {/* Main Content */}
       <div className="p-4">
         {wallet.connected ? (
