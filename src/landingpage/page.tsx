@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ShoppingBag, Zap, Users, Coffee, Sun, Moon } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import front from "../component/images/front.png"
 
 const MarketPage = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -172,7 +173,7 @@ const MarketPage = () => {
                   transition={{ duration: 0.5 }}
                   className="rounded-lg overflow-hidden shadow-2xl"
                 >
-                  <img src="/api/placeholder/600/400" alt="About SolanaMarket" className="w-full h-auto" />
+                  <img src={front} alt="About SolanaMarket" className="w-full h-auto" />
                 </motion.div>
               </div>
             </div>
