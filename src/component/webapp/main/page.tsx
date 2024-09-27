@@ -79,9 +79,13 @@ const HomePage = () => {
                 <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               </div>
               <FaShoppingCart className="text-gray-600 text-xl cursor-pointer" />
-              <Link to="/component/webapp/profile">
+
+
+              <Link to="/profile">
                 <FaUser className="text-gray-600 text-xl cursor-pointer" />
               </Link>
+
+
               <button
                 onClick={handleCreateAdClick}
                 className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
