@@ -1,15 +1,12 @@
-import { defineConfig } from 'vite'
-import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill'
-// ...
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { resolve } from 'path';
+
 export default defineConfig({
-  // ...
-  define: {
-    'process.env': {},
-     global: 'globalThis'
+  plugins: [react()],
+  resolve: {
+    alias: {
+      buffer: resolve('node_modules/buffer/'),
+    },
   },
-   plugins: [
-                NodeGlobalsPolyfillPlugin({
-                    buffer: true
-                })
-            ]
-})
+});
