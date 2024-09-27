@@ -4,6 +4,9 @@ import { BrowserRouter ,Routes, Route } from 'react-router-dom';
 import MarketPage from './landingpage/page';
 import ProfileDashboard from './component/webapp/profile/page';
 import HomePage from './component/webapp/main/page';
+import { Buffer } from "buffer";
+
+(window as any).Buffer = Buffer;
 
 function App() {
   return (
